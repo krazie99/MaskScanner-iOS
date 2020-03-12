@@ -9,71 +9,69 @@
 import SwiftUI
 import MapKit
 
-struct SMTMapView: UIViewRepresentable {
-    func makeUIView(context: Context) -> MTMapView {
-        let view = MTMapView(frame: .zero)
-        view.baseMapType = .standard
-        view.currentLocationTrackingMode = .onWithoutHeading
-        view.showCurrentLocationMarker = true
-        return view
-    }
-    
-    func updateUIView(_ uiView: MTMapView, context: UIViewRepresentableContext<SMTMapView>) {
-        
-    }
-}
-
-struct SMTMapView_Preview: PreviewProvider {
-    static var previews: some View {
-        SMTMapView()
-    }
-}
-
-struct MapView: UIViewRepresentable {
+struct SMTMapView: UIViewRepresentable, MapViewProtocol {
     
     @Binding var showMapAlert: Bool
-    var annotations: [MKPointAnnotation]
+    var annotations: [MKPointAnnotation]?
+    var locationManager: CLLocationManager? = nil
     
-    let locationManager = CLLocationManager()
-    let mapView = MKMapView(frame: .zero)
-    
-    func makeUIView(context: Context) -> MKMapView {
-        locationManager.delegate = context.coordinator
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        return mapView
+    var mapView: UIView {
+        return mtMapView
     }
     
-    func updateUIView(_ uiView: MKMapView, context: Context) {
+    private let mtMapView: MTMapView = {
+        let map = MTMapView(frame: .zero)
+        map.baseMapType = .standard
+        map.currentLocationTrackingMode = .onWithoutHeading
+        map.showCurrentLocationMarker = true
+        return map
+    }()
+    
+    func makeUIView(context: Context) -> MTMapView {
+//        locationManager.delegate = context.coordinator
+//        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+
+        mtMapView.delegate = context.coordinator
+        return mtMapView
+    }
+    
+    func updateUIView(_ uiView: MTMapView, context: Context) {
         print("Updating")
-        
-        uiView.showsUserLocation = true
-        uiView.userTrackingMode = .follow
-        
-        if annotations.count != uiView.annotations.count {
-            uiView.removeAnnotations(uiView.annotations)
-            uiView.addAnnotations(annotations)
-        }
+//        if let annotations = annotations,
+//            annotations.count != uiView.annotations.count {
+//            uiView.removeAnnotations(uiView.annotations)
+//            uiView.addAnnotations(annotations)
+//        }
     }
     
     ///Use class Coordinator method
     func makeCoordinator() -> LocationCoordinator {
         return LocationCoordinator(mapView: self)
     }
+    
+//    func setRegion(_ region: MKCoordinateRegion, animated: Bool) {
+//        let geo = MTMapPointGeo(latitude: region.center.latitude, longitude: region.center.longitude)
+//        mtMapView.setMapCenter(MTMapPoint(geoCoord: geo), zoomLevel: 1, animated: animated)
+//    }
 }
 
-
-struct MapView_Preview: PreviewProvider {
+struct SMTMapView_Preview: PreviewProvider {
     static var previews: some View {
-        MapView(showMapAlert: .constant(false), annotations: [MKPointAnnotation.example])
+        SMTMapView(showMapAlert: .constant(false), annotations: [MKPointAnnotation.example])
     }
 }
 
-extension MKPointAnnotation {
-    static var example: MKPointAnnotation {
-        let annotation = MKPointAnnotation()
-        annotation.title = "우리집"
-        annotation.subtitle = "백현마을 4단지"
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 37.38932677417901, longitude: 127.1140780875495)
-        return annotation
+extension LocationCoordinator: MTMapViewDelegate {
+    
+    func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
+
+        let currentLocationPointGeo = location.mapPointGeo()
+        print("MTMapView updateCurrentLocation (\(currentLocationPointGeo.latitude)), \(currentLocationPointGeo.longitude) accuracy (\(accuracy))")
+        
+        mapView.setMapCenter(MTMapPoint(geoCoord: currentLocationPointGeo), zoomLevel: 1, animated: true)
+    }
+    
+    func mapView(_ mapView: MTMapView!, updateDeviceHeading headingAngle: MTMapRotationAngle) {
+        print("MTMapView updateDeviceHeading (\(headingAngle))) degrees")
     }
 }

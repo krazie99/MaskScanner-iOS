@@ -16,7 +16,8 @@ struct ContentView: View {
     @State var showMapAlert = false
     
     var body: some View {
-        MapView(showMapAlert: $showMapAlert, annotations: locations)
+        //SMKMapView(showMapAlert: $showMapAlert, annotations: locations)
+        SMTMapView(showMapAlert: $showMapAlert, annotations: locations)
             .alert(isPresented: $showMapAlert) {
                 Alert(title: Text("Location access denied"),
                       message: Text("Your location is needed"),

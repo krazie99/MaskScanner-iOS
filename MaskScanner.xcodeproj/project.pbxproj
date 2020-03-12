@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		183E594073785F24FBC6BDD2 /* Pods_MaskScannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8089DA8A6C87DB15F3582EB6 /* Pods_MaskScannerTests.framework */; };
+		5B4F7B93241A6CB50017BCAE /* SMKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F7B92241A6CB50017BCAE /* SMKMapView.swift */; };
+		5B4F7B96241A6D010017BCAE /* MapViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F7B95241A6D010017BCAE /* MapViewProtocol.swift */; };
 		5B5ED63E241A28E800F0747A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ED63D241A28E800F0747A /* AppDelegate.swift */; };
 		5B5ED640241A28E800F0747A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ED63F241A28E800F0747A /* SceneDelegate.swift */; };
 		5B5ED642241A28E800F0747A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ED641241A28E800F0747A /* ContentView.swift */; };
@@ -54,6 +56,8 @@
 		18B14ED3C31191048DB9DC50 /* Pods-MaskScannerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaskScannerTests.debug.xcconfig"; path = "Target Support Files/Pods-MaskScannerTests/Pods-MaskScannerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2919CE3CEE5E809EF0BF70D5 /* Pods-MaskScanner-MaskScannerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaskScanner-MaskScannerUITests.debug.xcconfig"; path = "Target Support Files/Pods-MaskScanner-MaskScannerUITests/Pods-MaskScanner-MaskScannerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4F8A57516AF047D3D3BD9619 /* Pods-MaskScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaskScanner.release.xcconfig"; path = "Target Support Files/Pods-MaskScanner/Pods-MaskScanner.release.xcconfig"; sourceTree = "<group>"; };
+		5B4F7B92241A6CB50017BCAE /* SMKMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMKMapView.swift; sourceTree = "<group>"; };
+		5B4F7B95241A6D010017BCAE /* MapViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewProtocol.swift; sourceTree = "<group>"; };
 		5B5ED63A241A28E800F0747A /* MaskScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaskScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B5ED63D241A28E800F0747A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B5ED63F241A28E800F0747A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +142,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5B4F7B94241A6CF30017BCAE /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				5B4F7B95241A6D010017BCAE /* MapViewProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		5B5ED631241A28E800F0747A = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +178,7 @@
 				5B5ED63D241A28E800F0747A /* AppDelegate.swift */,
 				5B5ED63F241A28E800F0747A /* SceneDelegate.swift */,
 				5B5ED641241A28E800F0747A /* ContentView.swift */,
+				5B4F7B94241A6CF30017BCAE /* Protocol */,
 				5B5ED6B0241A51DD00F0747A /* Model */,
 				5B5ED690241A370100F0747A /* View */,
 				5B5ED695241A3CCA00F0747A /* Library */,
@@ -209,6 +222,7 @@
 			children = (
 				5B5ED6B1241A51FA00F0747A /* LocationCoordinator.swift */,
 				5B5ED68E241A36E500F0747A /* SMTMapView.swift */,
+				5B4F7B92241A6CB50017BCAE /* SMKMapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -453,8 +467,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B5ED6B2241A51FA00F0747A /* LocationCoordinator.swift in Sources */,
+				5B4F7B93241A6CB50017BCAE /* SMKMapView.swift in Sources */,
 				5B5ED68F241A36E500F0747A /* SMTMapView.swift in Sources */,
 				5B5ED63E241A28E800F0747A /* AppDelegate.swift in Sources */,
+				5B4F7B96241A6D010017BCAE /* MapViewProtocol.swift in Sources */,
 				5B5ED640241A28E800F0747A /* SceneDelegate.swift in Sources */,
 				5B5ED642241A28E800F0747A /* ContentView.swift in Sources */,
 			);
