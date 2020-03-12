@@ -1,0 +1,6 @@
+framework module Pods_MaskScanner_MaskScannerUITests {
+  umbrella header "Pods-MaskScanner-MaskScannerUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
