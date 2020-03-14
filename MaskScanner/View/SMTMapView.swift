@@ -10,9 +10,10 @@ import SwiftUI
 import MapKit
 
 struct SMTMapView: UIViewRepresentable, MapViewProtocol {
-    var viewModel: MaskStoresViewModel?
-    
     var locationManager: CLLocationManager? = nil
+    
+    var viewModel: MaskStoresViewModel?
+    @Binding var annotations: [MKPointAnnotation]?
     
     var mapView: UIView {
         return mtMapView
@@ -44,7 +45,7 @@ struct SMTMapView: UIViewRepresentable, MapViewProtocol {
 
 struct SMTMapView_Preview: PreviewProvider {
     static var previews: some View {
-        SMTMapView(viewModel: MaskStoresViewModel())
+        SMTMapView(viewModel: MaskStoresViewModel(), annotations: .constant([MKPointAnnotation.example]))
     }
 }
 

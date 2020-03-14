@@ -11,6 +11,7 @@ import MapKit
 
 struct SMKMapView: UIViewRepresentable, MapViewProtocol {
     var viewModel: MaskStoresViewModel?
+    @Binding var annotations: [MKPointAnnotation]?
     
     var locationManager: CLLocationManager? = CLLocationManager()
     var mapView: UIView {
@@ -32,11 +33,11 @@ struct SMKMapView: UIViewRepresentable, MapViewProtocol {
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
         print("Updating")
-//        if let annotations = annotations,
-//            annotations.count != uiView.annotations.count {
-//            uiView.removeAnnotations(uiView.annotations)
-//            uiView.addAnnotations(annotations)
-//        }
+        if let annotations = annotations,
+            annotations.count != uiView.annotations.count {
+            uiView.removeAnnotations(uiView.annotations)
+            uiView.addAnnotations(annotations)
+        }
     }
     
     ///Use class Coordinator method
@@ -46,18 +47,18 @@ struct SMKMapView: UIViewRepresentable, MapViewProtocol {
     
     func setRegion(_ region: MKCoordinateRegion, animated: Bool) {
         mkMapView.setRegion(region, animated: animated)
+        viewModel?.regionTuple = (region.center.latitude, region.center.longitude)
     }
 }
 
-
 struct MapView_Preview: PreviewProvider {
     static var previews: some View {
-        SMKMapView(viewModel: MaskStoresViewModel())
+        SMKMapView(viewModel: MaskStoresViewModel(), annotations: .constant([MKPointAnnotation.example]))
     }
 }
 
 extension MKPointAnnotation {
-    static var exmpleLatiAndLng = (37.38932677417901, 127.1140780875495)
+    static var exmpleregionTuple = (37.38932677417901, 127.1140780875495)
     static var example: MKPointAnnotation {
         let annotation = MKPointAnnotation()
         annotation.title = "우리집"

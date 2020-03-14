@@ -198,10 +198,10 @@
 				5B5ED63D241A28E800F0747A /* AppDelegate.swift */,
 				5B5ED63F241A28E800F0747A /* SceneDelegate.swift */,
 				5B5ED641241A28E800F0747A /* ContentView.swift */,
+				5BA025DB241D03FE0087433F /* Network */,
 				5B4F7B94241A6CF30017BCAE /* Protocol */,
 				5B5ED6B0241A51DD00F0747A /* Model */,
-				5BA025DB241D03FE0087433F /* Network */,
-				5BA025F3241D0BDB0087433F /* NetworkObserver */,
+				5BA025F3241D0BDB0087433F /* ViewModel */,
 				5B5ED690241A370100F0747A /* View */,
 				5BA025D6241D009C0087433F /* Extension */,
 				5B5ED695241A3CCA00F0747A /* Library */,
@@ -304,12 +304,12 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
-		5BA025F3241D0BDB0087433F /* NetworkObserver */ = {
+		5BA025F3241D0BDB0087433F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				5BA025F4241D0BEC0087433F /* MaskStoresViewModel.swift */,
 			);
-			path = NetworkObserver;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F1EFDBE1866A1FB85560E3FA /* Frameworks */ = {
