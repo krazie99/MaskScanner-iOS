@@ -28,7 +28,7 @@ struct SMKMapView: UIViewRepresentable, MapViewProtocol {
 
     func makeUIView(context: Context) -> MKMapView {
         locationManager?.delegate = context.coordinator
-        locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         return mkMapView
     }
     

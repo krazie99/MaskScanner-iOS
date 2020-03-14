@@ -28,9 +28,7 @@ struct SMTMapView: UIViewRepresentable, MapViewProtocol {
     }()
     
     func makeUIView(context: Context) -> MTMapView {
-//        locationManager.delegate = context.coordinator
-//        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-
+        //다음맵뷰는 LocationManager을 사용하지 않는다
         mtMapView.delegate = context.coordinator
         return mtMapView
     }
@@ -48,11 +46,6 @@ struct SMTMapView: UIViewRepresentable, MapViewProtocol {
     func makeCoordinator() -> LocationCoordinator {
         return LocationCoordinator(mapView: self)
     }
-    
-//    func setRegion(_ region: MKCoordinateRegion, animated: Bool) {
-//        let geo = MTMapPointGeo(latitude: region.center.latitude, longitude: region.center.longitude)
-//        mtMapView.setMapCenter(MTMapPoint(geoCoord: geo), zoomLevel: 1, animated: animated)
-//    }
 }
 
 struct SMTMapView_Preview: PreviewProvider {

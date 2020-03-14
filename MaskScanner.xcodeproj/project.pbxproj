@@ -30,6 +30,8 @@
 		5B5ED6AB241A3F5000F0747A /* DaumMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5ED686241A33F000F0747A /* DaumMap.framework */; };
 		5B5ED6AD241A3F7800F0747A /* DaumMap.embeddedframework in Resources */ = {isa = PBXBuildFile; fileRef = 5B5ED6AC241A3F7800F0747A /* DaumMap.embeddedframework */; };
 		5B5ED6B2241A51FA00F0747A /* LocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ED6B1241A51FA00F0747A /* LocationCoordinator.swift */; };
+		5BA025D8241D00B30087433F /* Color+DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA025D7241D00B30087433F /* Color+DarkMode.swift */; };
+		5BA025DA241D01240087433F /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA025D9241D01240087433F /* Color.xcassets */; };
 		9345A5277F83E69E50042C14 /* Pods_MaskScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC9786818976AC6666AF200 /* Pods_MaskScanner.framework */; };
 		E8F1C863AA5165D88B65527B /* Pods_MaskScanner_MaskScannerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE17402F969874A8130923A /* Pods_MaskScanner_MaskScannerUITests.framework */; };
 /* End PBXBuildFile section */
@@ -85,6 +87,8 @@
 		5B5ED6A7241A3EA800F0747A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5B5ED6AC241A3F7800F0747A /* DaumMap.embeddedframework */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DaumMap.embeddedframework; sourceTree = "<group>"; };
 		5B5ED6B1241A51FA00F0747A /* LocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinator.swift; sourceTree = "<group>"; };
+		5BA025D7241D00B30087433F /* Color+DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+DarkMode.swift"; sourceTree = "<group>"; };
+		5BA025D9241D01240087433F /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		5DC7668BE5D8FD4CD374C7BB /* Pods-MaskScanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaskScanner.debug.xcconfig"; path = "Target Support Files/Pods-MaskScanner/Pods-MaskScanner.debug.xcconfig"; sourceTree = "<group>"; };
 		6AE17402F969874A8130923A /* Pods_MaskScanner_MaskScannerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaskScanner_MaskScannerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8089DA8A6C87DB15F3582EB6 /* Pods_MaskScannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaskScannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,9 +185,11 @@
 				5B4F7B94241A6CF30017BCAE /* Protocol */,
 				5B5ED6B0241A51DD00F0747A /* Model */,
 				5B5ED690241A370100F0747A /* View */,
+				5BA025D6241D009C0087433F /* Extension */,
 				5B5ED695241A3CCA00F0747A /* Library */,
 				5B5ED645241A28E900F0747A /* Preview Content */,
 				5B5ED643241A28E900F0747A /* Assets.xcassets */,
+				5BA025D9241D01240087433F /* Color.xcassets */,
 				5B5ED648241A28E900F0747A /* LaunchScreen.storyboard */,
 				5B5ED64B241A28E900F0747A /* Info.plist */,
 				5B5ED68A241A346600F0747A /* MaskScanner-Bridging-Header.h */,
@@ -240,6 +246,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5BA025D6241D009C0087433F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5BA025D7241D00B30087433F /* Color+DarkMode.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		F1EFDBE1866A1FB85560E3FA /* Frameworks */ = {
@@ -371,6 +385,7 @@
 			files = (
 				5B5ED6AD241A3F7800F0747A /* DaumMap.embeddedframework in Resources */,
 				5B5ED64A241A28E900F0747A /* LaunchScreen.storyboard in Resources */,
+				5BA025DA241D01240087433F /* Color.xcassets in Resources */,
 				5B5ED647241A28E900F0747A /* Preview Assets.xcassets in Resources */,
 				5B5ED644241A28E900F0747A /* Assets.xcassets in Resources */,
 			);
@@ -466,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BA025D8241D00B30087433F /* Color+DarkMode.swift in Sources */,
 				5B5ED6B2241A51FA00F0747A /* LocationCoordinator.swift in Sources */,
 				5B4F7B93241A6CB50017BCAE /* SMKMapView.swift in Sources */,
 				5B5ED68F241A36E500F0747A /* SMTMapView.swift in Sources */,
