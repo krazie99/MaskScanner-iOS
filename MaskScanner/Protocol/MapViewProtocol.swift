@@ -12,9 +12,7 @@ import MapKit
 protocol MapViewProtocol {
     var mapView: UIView { get }
     var locationManager: CLLocationManager? { get set }
-    var annotations: [MKPointAnnotation]? { get set }
-    
-    var showMapAlert: Bool { get set }
+    var viewModel: MaskStoresViewModel? { get set }
     
     func setRegion(_ region: MKCoordinateRegion, animated: Bool)
 }

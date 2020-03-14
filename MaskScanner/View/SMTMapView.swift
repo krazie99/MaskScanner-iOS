@@ -10,11 +10,8 @@ import SwiftUI
 import MapKit
 
 struct SMTMapView: UIViewRepresentable, MapViewProtocol {
+    var viewModel: MaskStoresViewModel?
     
-    @Binding var showMapAlert: Bool
-    @Binding var latiAndLng: (Double, Double)?
-    
-    var annotations: [MKPointAnnotation]?
     var locationManager: CLLocationManager? = nil
     
     var mapView: UIView {
@@ -37,11 +34,6 @@ struct SMTMapView: UIViewRepresentable, MapViewProtocol {
     
     func updateUIView(_ uiView: MTMapView, context: Context) {
         print("Updating")
-//        if let annotations = annotations,
-//            annotations.count != uiView.annotations.count {
-//            uiView.removeAnnotations(uiView.annotations)
-//            uiView.addAnnotations(annotations)
-//        }
     }
     
     ///Use class Coordinator method
@@ -52,9 +44,7 @@ struct SMTMapView: UIViewRepresentable, MapViewProtocol {
 
 struct SMTMapView_Preview: PreviewProvider {
     static var previews: some View {
-        SMTMapView(showMapAlert: .constant(false),
-                   latiAndLng: .constant(MKPointAnnotation.exmpleLatiAndLng),
-                   annotations: [MKPointAnnotation.example])
+        SMTMapView(viewModel: MaskStoresViewModel())
     }
 }
 

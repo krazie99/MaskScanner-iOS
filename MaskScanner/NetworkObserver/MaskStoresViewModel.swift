@@ -1,5 +1,5 @@
 //
-//  SNObserver.swift
+//  MaskStoresViewModel.swift
 //  MaskScanner
 //
 //  Created by Sean Choi on 2020/03/14.
@@ -7,9 +7,15 @@
 //
 
 import SwiftUI
+import MapKit
 
-class SNObserver : ObservableObject{
+class MaskStoresViewModel: ObservableObject {
     @Published var stores: [MaskStore]?
+    
+    @Published var locations: [MKPointAnnotation]?
+    @Published var latiAndLng: (Double, Double)?
+    
+    @Published var showMapAlert = false
     
     func requestMaskStoresByGeo() { //(lati : Double, lng: Double) {
         let request = GeoStoresSRequest()

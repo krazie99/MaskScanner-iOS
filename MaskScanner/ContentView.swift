@@ -7,24 +7,17 @@
 //
 
 import SwiftUI
-import MapKit
 
 struct ContentView: View {
-    @State private var locations = [MKPointAnnotation]()
-    @State var showMapAlert = false
-    @State var latiAndLng: (Double, Double)?
-    
-    @ObservedObject var storeObserved = SNObserver()
+    @ObservedObject var viewModel = MaskStoresViewModel()
     
     var body: some View {
         ZStack {
             //다음맵뷰
-            //SMTMapView(showMapAlert: $showMapAlert, latiAndLng: $latiAndLng, annotations: locations)
+            //SMTMapView(viewModel: viewModel)
             //MKMapView
-            SMKMapView(showMapAlert: $showMapAlert,
-                       latiAndLng: $latiAndLng,
-                       annotations: locations)
-                .alert(isPresented: $showMapAlert) {
+            SMKMapView(viewModel: viewModel)
+                .alert(isPresented: $viewModel.showMapAlert) {
                     Alert(title: Text("Location access denied"),
                           message: Text("Your location is needed"),
                           primaryButton: .cancel(),
@@ -45,7 +38,7 @@ struct ContentView: View {
             .edgesIgnoringSafeArea(.top)
         }.onAppear() {
             print("ContentView appeared!")
-            self.storeObserved.requestMaskStoresByGeo()
+            self.viewModel.requestMaskStoresByGeo()
         }
     }
 }

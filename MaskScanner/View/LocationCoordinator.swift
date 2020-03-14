@@ -24,7 +24,7 @@ class LocationCoordinator: NSObject, CLLocationManagerDelegate {
         case .restricted:
             break
         case .denied:
-            mapView.showMapAlert.toggle()
+            mapView.viewModel?.showMapAlert.toggle()
             return
         case .notDetermined:
             mapView.locationManager?.requestWhenInUseAuthorization()
