@@ -16,9 +16,13 @@ class MaskStoresViewModel: ObservableObject {
         }
     }
     
-    @Published var regionTuple: (lati: Double, lng: Double)?
-    @Published var annotations: [MKPointAnnotation]?
+    @Published var regionTuple: (lati: Double, lng: Double)? {
+        didSet {
+            requestMaskStoresByGeo()
+        }
+    }
     
+    @Published var annotations: [MKPointAnnotation]?
     @Published var showMapAlert = false
     
     func requestMaskStoresByGeo() {
