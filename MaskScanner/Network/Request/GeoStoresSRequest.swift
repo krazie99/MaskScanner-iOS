@@ -12,16 +12,7 @@ import Alamofire
 final class GeoStoresSRequest: SRequest<GeoStoresSResponse> {
     
     override var path: String {
-        return "/storesByGeo/json"
-    }
-    
-    override var method: HTTPMethod {
-        return .post
-    }
-    
-    override var parameters: Parameters {
-        let params : Parameters = ["lat": lat, "lng": lng, "m": meter]
-        return params
+        return "/storesByGeo/json?lat=\(lat)&lng=\(lng)&m=\(meter)"
     }
     
     // MARK: - Parameters

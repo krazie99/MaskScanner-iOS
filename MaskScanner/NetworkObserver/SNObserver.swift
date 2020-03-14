@@ -11,10 +11,10 @@ import SwiftUI
 class SNObserver : ObservableObject{
     @Published var stores: [MaskStore]?
     
-    func requestMaskStoresByGeo(lati : Double, lng: Double) {
+    func requestMaskStoresByGeo() { //(lati : Double, lng: Double) {
         let request = GeoStoresSRequest()
-        request.lat = lati
-        request.lng = lng
+//        request.lat = lati
+//        request.lng = lng
         SNetwork.request(request) { [weak self] (response, error) in
             guard let self = self, let response = response as? GeoStoresSResponse else { return }
             self.stores = response.stores

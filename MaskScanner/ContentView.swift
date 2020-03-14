@@ -44,7 +44,8 @@ struct ContentView: View {
             }
             .edgesIgnoringSafeArea(.top)
         }.onAppear() {
-            
+            print("ContentView appeared!")
+            self.storeObserved.requestMaskStoresByGeo()
         }
     }
 }
