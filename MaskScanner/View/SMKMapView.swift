@@ -12,6 +12,8 @@ import MapKit
 struct SMKMapView: UIViewRepresentable, MapViewProtocol {
     
     @Binding var showMapAlert: Bool
+    @Binding var latiAndLng: (Double, Double)?
+    
     var annotations: [MKPointAnnotation]?
     
     var locationManager: CLLocationManager? = CLLocationManager()
@@ -54,11 +56,14 @@ struct SMKMapView: UIViewRepresentable, MapViewProtocol {
 
 struct MapView_Preview: PreviewProvider {
     static var previews: some View {
-        SMKMapView(showMapAlert: .constant(false), annotations: [MKPointAnnotation.example])
+        SMKMapView(showMapAlert: .constant(false),
+                   latiAndLng: .constant(MKPointAnnotation.exmpleLatiAndLng),
+                   annotations: [MKPointAnnotation.example])
     }
 }
 
 extension MKPointAnnotation {
+    static var exmpleLatiAndLng = (37.38932677417901, 127.1140780875495)
     static var example: MKPointAnnotation {
         let annotation = MKPointAnnotation()
         annotation.title = "우리집"

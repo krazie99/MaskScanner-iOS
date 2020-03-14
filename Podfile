@@ -6,6 +6,7 @@ target 'MaskScanner' do
   use_frameworks!
 
   # Pods for MaskScanner
+  pod 'Alamofire', '~> 5.0'
 
   target 'MaskScannerTests' do
     inherit! :search_paths

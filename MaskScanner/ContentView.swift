@@ -12,13 +12,18 @@ import MapKit
 struct ContentView: View {
     @State private var locations = [MKPointAnnotation]()
     @State var showMapAlert = false
+    @State var latiAndLng: (Double, Double)?
+    
+    @ObservedObject var storeObserved = SNObserver()
     
     var body: some View {
         ZStack {
             //다음맵뷰
-            //SMTMapView(showMapAlert: $showMapAlert, annotations: locations)
+            //SMTMapView(showMapAlert: $showMapAlert, latiAndLng: $latiAndLng, annotations: locations)
             //MKMapView
-            SMKMapView(showMapAlert: $showMapAlert, annotations: locations)
+            SMKMapView(showMapAlert: $showMapAlert,
+                       latiAndLng: $latiAndLng,
+                       annotations: locations)
                 .alert(isPresented: $showMapAlert) {
                     Alert(title: Text("Location access denied"),
                           message: Text("Your location is needed"),
@@ -38,6 +43,8 @@ struct ContentView: View {
                 Spacer()
             }
             .edgesIgnoringSafeArea(.top)
+        }.onAppear() {
+            
         }
     }
 }

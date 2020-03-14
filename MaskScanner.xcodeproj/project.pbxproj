@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,6 +32,14 @@
 		5B5ED6B2241A51FA00F0747A /* LocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ED6B1241A51FA00F0747A /* LocationCoordinator.swift */; };
 		5BA025D8241D00B30087433F /* Color+DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA025D7241D00B30087433F /* Color+DarkMode.swift */; };
 		5BA025DA241D01240087433F /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA025D9241D01240087433F /* Color.xcassets */; };
+		5BA025DD241D040B0087433F /* SNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA025DC241D040B0087433F /* SNetwork.swift */; };
+		5BA025E3241D04950087433F /* SResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA025E2241D04950087433F /* SResponse.swift */; };
+		5BA025E7241D05C20087433F /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA025E6241D05C20087433F /* AlertHelper.swift */; };
+		5BA025EC241D08F80087433F /* MaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA025EB241D08F80087433F /* MaskStore.swift */; };
+		5BA025EE241D09AE0087433F /* GeoStoresSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA025ED241D09AE0087433F /* GeoStoresSResponse.swift */; };
+		5BA025F0241D09F80087433F /* SRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA025EF241D09F80087433F /* SRequest.swift */; };
+		5BA025F2241D0A840087433F /* GeoStoresSRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA025F1241D0A840087433F /* GeoStoresSRequest.swift */; };
+		5BA025F5241D0BEC0087433F /* SNObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA025F4241D0BEC0087433F /* SNObserver.swift */; };
 		9345A5277F83E69E50042C14 /* Pods_MaskScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC9786818976AC6666AF200 /* Pods_MaskScanner.framework */; };
 		E8F1C863AA5165D88B65527B /* Pods_MaskScanner_MaskScannerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE17402F969874A8130923A /* Pods_MaskScanner_MaskScannerUITests.framework */; };
 /* End PBXBuildFile section */
@@ -89,6 +97,14 @@
 		5B5ED6B1241A51FA00F0747A /* LocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinator.swift; sourceTree = "<group>"; };
 		5BA025D7241D00B30087433F /* Color+DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+DarkMode.swift"; sourceTree = "<group>"; };
 		5BA025D9241D01240087433F /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		5BA025DC241D040B0087433F /* SNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNetwork.swift; sourceTree = "<group>"; };
+		5BA025E2241D04950087433F /* SResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SResponse.swift; sourceTree = "<group>"; };
+		5BA025E6241D05C20087433F /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		5BA025EB241D08F80087433F /* MaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskStore.swift; sourceTree = "<group>"; };
+		5BA025ED241D09AE0087433F /* GeoStoresSResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoStoresSResponse.swift; sourceTree = "<group>"; };
+		5BA025EF241D09F80087433F /* SRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRequest.swift; sourceTree = "<group>"; };
+		5BA025F1241D0A840087433F /* GeoStoresSRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoStoresSRequest.swift; sourceTree = "<group>"; };
+		5BA025F4241D0BEC0087433F /* SNObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNObserver.swift; sourceTree = "<group>"; };
 		5DC7668BE5D8FD4CD374C7BB /* Pods-MaskScanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaskScanner.debug.xcconfig"; path = "Target Support Files/Pods-MaskScanner/Pods-MaskScanner.debug.xcconfig"; sourceTree = "<group>"; };
 		6AE17402F969874A8130923A /* Pods_MaskScanner_MaskScannerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaskScanner_MaskScannerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8089DA8A6C87DB15F3582EB6 /* Pods_MaskScannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MaskScannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +200,8 @@
 				5B5ED641241A28E800F0747A /* ContentView.swift */,
 				5B4F7B94241A6CF30017BCAE /* Protocol */,
 				5B5ED6B0241A51DD00F0747A /* Model */,
+				5BA025DB241D03FE0087433F /* Network */,
+				5BA025F3241D0BDB0087433F /* NetworkObserver */,
 				5B5ED690241A370100F0747A /* View */,
 				5BA025D6241D009C0087433F /* Extension */,
 				5B5ED695241A3CCA00F0747A /* Library */,
@@ -244,6 +262,7 @@
 		5B5ED6B0241A51DD00F0747A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5BA025EB241D08F80087433F /* MaskStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -254,6 +273,43 @@
 				5BA025D7241D00B30087433F /* Color+DarkMode.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		5BA025DB241D03FE0087433F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5BA025DC241D040B0087433F /* SNetwork.swift */,
+				5BA025E6241D05C20087433F /* AlertHelper.swift */,
+				5BA025E8241D081F0087433F /* Request */,
+				5BA025EA241D082A0087433F /* Response */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		5BA025E8241D081F0087433F /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				5BA025EF241D09F80087433F /* SRequest.swift */,
+				5BA025F1241D0A840087433F /* GeoStoresSRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		5BA025EA241D082A0087433F /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				5BA025E2241D04950087433F /* SResponse.swift */,
+				5BA025ED241D09AE0087433F /* GeoStoresSResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		5BA025F3241D0BDB0087433F /* NetworkObserver */ = {
+			isa = PBXGroup;
+			children = (
+				5BA025F4241D0BEC0087433F /* SNObserver.swift */,
+			);
+			path = NetworkObserver;
 			sourceTree = "<group>";
 		};
 		F1EFDBE1866A1FB85560E3FA /* Frameworks */ = {
@@ -286,6 +342,7 @@
 				5B5ED636241A28E800F0747A /* Sources */,
 				5B5ED637241A28E800F0747A /* Frameworks */,
 				5B5ED638241A28E800F0747A /* Resources */,
+				11EE649E9F582912160D4CE5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -323,6 +380,7 @@
 				5B5ED657241A28EA00F0747A /* Sources */,
 				5B5ED658241A28EA00F0747A /* Frameworks */,
 				5B5ED659241A28EA00F0747A /* Resources */,
+				EF890471618B1A643756598C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -408,6 +466,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		11EE649E9F582912160D4CE5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MaskScanner/Pods-MaskScanner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MaskScanner/Pods-MaskScanner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MaskScanner/Pods-MaskScanner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		51504667EE65C71B35850BE7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -474,6 +549,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EF890471618B1A643756598C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MaskScanner-MaskScannerUITests/Pods-MaskScanner-MaskScannerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MaskScanner-MaskScannerUITests/Pods-MaskScanner-MaskScannerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MaskScanner-MaskScannerUITests/Pods-MaskScanner-MaskScannerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -481,12 +573,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BA025E7241D05C20087433F /* AlertHelper.swift in Sources */,
 				5BA025D8241D00B30087433F /* Color+DarkMode.swift in Sources */,
+				5BA025DD241D040B0087433F /* SNetwork.swift in Sources */,
 				5B5ED6B2241A51FA00F0747A /* LocationCoordinator.swift in Sources */,
+				5BA025F5241D0BEC0087433F /* SNObserver.swift in Sources */,
+				5BA025EC241D08F80087433F /* MaskStore.swift in Sources */,
+				5BA025E3241D04950087433F /* SResponse.swift in Sources */,
 				5B4F7B93241A6CB50017BCAE /* SMKMapView.swift in Sources */,
 				5B5ED68F241A36E500F0747A /* SMTMapView.swift in Sources */,
 				5B5ED63E241A28E800F0747A /* AppDelegate.swift in Sources */,
+				5BA025F0241D09F80087433F /* SRequest.swift in Sources */,
+				5BA025EE241D09AE0087433F /* GeoStoresSResponse.swift in Sources */,
 				5B4F7B96241A6D010017BCAE /* MapViewProtocol.swift in Sources */,
+				5BA025F2241D0A840087433F /* GeoStoresSRequest.swift in Sources */,
 				5B5ED640241A28E800F0747A /* SceneDelegate.swift in Sources */,
 				5B5ED642241A28E800F0747A /* ContentView.swift in Sources */,
 			);
