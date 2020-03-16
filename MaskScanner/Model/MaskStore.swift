@@ -58,11 +58,11 @@ enum MaskRemainType {
     var color: UIColor {
         switch self {
         case .plenty:
-            return UIColor.green
+            return UIColor(named: "greenMaskColor") ?? UIColor.green
         case .some:
-            return UIColor.yellow
+            return UIColor(named: "yellowMaskColor") ?? UIColor.yellow
         case .few:
-            return UIColor.red
+            return UIColor(named: "redMaskColor") ?? UIColor.red
         case .empty:
             return UIColor.gray
         }

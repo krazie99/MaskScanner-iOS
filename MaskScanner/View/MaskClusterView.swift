@@ -63,27 +63,27 @@ class MaskClusterView: MKAnnotationView {
                     piePath.close()
                     piePath.fill()
                     
-//                    someColor.setFill()
-//                    let someEndAngle: CGFloat = (CGFloat.pi * 2.0 * CGFloat(someCount)) / CGFloat(count)
-//                    
-//                    let piePath2 = UIBezierPath()
-//                    piePath2.addArc(withCenter: CGPoint(x: 20, y: 20), radius: 20,
-//                                   startAngle: plentyEndAngle, endAngle: someEndAngle,
-//                                   clockwise: true)
-//                    piePath2.addLine(to: CGPoint(x: 20, y: 20))
-//                    piePath2.close()
-//                    piePath2.fill()
-//                    
-//                    fewColor.setFill()
-//                    let fewEndAngle: CGFloat = (CGFloat.pi * 2.0 * CGFloat(fewCount)) / CGFloat(count)
-//                    
-//                    let piePath3 = UIBezierPath()
-//                    piePath3.addArc(withCenter: CGPoint(x: 20, y: 20), radius: 20,
-//                                   startAngle: someEndAngle, endAngle: fewEndAngle,
-//                                   clockwise: true)
-//                    piePath3.addLine(to: CGPoint(x: 20, y: 20))
-//                    piePath3.close()
-//                    piePath3.fill()
+                    someColor.setFill()
+                    let someEndAngle: CGFloat = plentyEndAngle + (CGFloat.pi * 2.0 * CGFloat(someCount)) / CGFloat(count)
+
+                    let piePath2 = UIBezierPath()
+                    piePath2.addArc(withCenter: CGPoint(x: 20, y: 20), radius: 20,
+                                   startAngle: plentyEndAngle, endAngle: someEndAngle,
+                                   clockwise: true)
+                    piePath2.addLine(to: CGPoint(x: 20, y: 20))
+                    piePath2.close()
+                    piePath2.fill()
+
+                    fewColor.setFill()
+                    let fewEndAngle: CGFloat = someEndAngle + (CGFloat.pi * 2.0 * CGFloat(fewCount)) / CGFloat(count)
+
+                    let piePath3 = UIBezierPath()
+                    piePath3.addArc(withCenter: CGPoint(x: 20, y: 20), radius: 20,
+                                   startAngle: someEndAngle, endAngle: fewEndAngle,
+                                   clockwise: true)
+                    piePath3.addLine(to: CGPoint(x: 20, y: 20))
+                    piePath3.close()
+                    piePath3.fill()
                     
                     // Fill inner circle with white color
                     UIColor.white.setFill()
