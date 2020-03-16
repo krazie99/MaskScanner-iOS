@@ -70,7 +70,7 @@ extension LocationCoordinator: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
         if let annotation = view.annotation as? MaskAnnotation {
-            print(annotation.identifier)
+            print("Annotation: \(annotation.title ?? "") : \(annotation.subtitle ?? "")")
         }
     }
 }

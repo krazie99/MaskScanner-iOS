@@ -66,9 +66,9 @@ extension MKPointAnnotation {
     static var exmpleregionTuple = (37.38932677417901, 127.1140780875495)
     static var example: MaskAnnotation {
         let annotation = MaskAnnotation()
-        annotation.title = "우리집"
-        annotation.subtitle = "백현마을 4단지"
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 37.38932677417901, longitude: 127.1140780875495)
+        annotation.title = "서울시청"
+        annotation.subtitle = "테스트"
+        annotation.coordinate = CLLocationCoordinate2D(latitude: 37.56638, longitude: 126.977715)
         return annotation
     }
 }

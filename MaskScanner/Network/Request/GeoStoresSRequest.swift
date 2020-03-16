@@ -17,9 +17,9 @@ final class GeoStoresSRequest: SRequest<GeoStoresSResponse> {
     
     // MARK: - Parameters
     //위도(wgs84 좌표계) / 최소:33.0, 최대:43.0
-    var lat: Double = 37.38932677417901
+    var lat: Double = 37.56638
     //경도(wgs84 표준) / 최소:124.0, 최대:132.0
-    var lng: Double = 127.1140780875495
+    var lng: Double = 126.977715
     //반경(미터) / 최대 5000(5km)까지 조회 가능
     var meter : Int = 3000
 }
