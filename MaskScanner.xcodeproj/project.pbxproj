@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		183E594073785F24FBC6BDD2 /* Pods_MaskScannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8089DA8A6C87DB15F3582EB6 /* Pods_MaskScannerTests.framework */; };
+		5B460290241F0C480031A895 /* MaskAnnotaion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B46028F241F0C480031A895 /* MaskAnnotaion.swift */; };
+		5B460292241F0DAF0031A895 /* MaskAnnottationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B460291241F0DAF0031A895 /* MaskAnnottationView.swift */; };
+		5B4602EE241F3BE60031A895 /* MaskClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4602ED241F3BE60031A895 /* MaskClusterView.swift */; };
 		5B4F7B93241A6CB50017BCAE /* SMKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F7B92241A6CB50017BCAE /* SMKMapView.swift */; };
 		5B4F7B96241A6D010017BCAE /* MapViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F7B95241A6D010017BCAE /* MapViewProtocol.swift */; };
 		5B5ED63E241A28E800F0747A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ED63D241A28E800F0747A /* AppDelegate.swift */; };
@@ -66,6 +69,9 @@
 		18B14ED3C31191048DB9DC50 /* Pods-MaskScannerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaskScannerTests.debug.xcconfig"; path = "Target Support Files/Pods-MaskScannerTests/Pods-MaskScannerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2919CE3CEE5E809EF0BF70D5 /* Pods-MaskScanner-MaskScannerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaskScanner-MaskScannerUITests.debug.xcconfig"; path = "Target Support Files/Pods-MaskScanner-MaskScannerUITests/Pods-MaskScanner-MaskScannerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4F8A57516AF047D3D3BD9619 /* Pods-MaskScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MaskScanner.release.xcconfig"; path = "Target Support Files/Pods-MaskScanner/Pods-MaskScanner.release.xcconfig"; sourceTree = "<group>"; };
+		5B46028F241F0C480031A895 /* MaskAnnotaion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskAnnotaion.swift; sourceTree = "<group>"; };
+		5B460291241F0DAF0031A895 /* MaskAnnottationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskAnnottationView.swift; sourceTree = "<group>"; };
+		5B4602ED241F3BE60031A895 /* MaskClusterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskClusterView.swift; sourceTree = "<group>"; };
 		5B4F7B92241A6CB50017BCAE /* SMKMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMKMapView.swift; sourceTree = "<group>"; };
 		5B4F7B95241A6D010017BCAE /* MapViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewProtocol.swift; sourceTree = "<group>"; };
 		5B5ED63A241A28E800F0747A /* MaskScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaskScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +253,8 @@
 				5B5ED6B1241A51FA00F0747A /* LocationCoordinator.swift */,
 				5B5ED68E241A36E500F0747A /* SMTMapView.swift */,
 				5B4F7B92241A6CB50017BCAE /* SMKMapView.swift */,
+				5B460291241F0DAF0031A895 /* MaskAnnottationView.swift */,
+				5B4602ED241F3BE60031A895 /* MaskClusterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -263,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				5BA025EB241D08F80087433F /* MaskStore.swift */,
+				5B46028F241F0C480031A895 /* MaskAnnotaion.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -573,6 +582,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B4602EE241F3BE60031A895 /* MaskClusterView.swift in Sources */,
 				5BA025E7241D05C20087433F /* AlertHelper.swift in Sources */,
 				5BA025D8241D00B30087433F /* Color+DarkMode.swift in Sources */,
 				5BA025DD241D040B0087433F /* SNetwork.swift in Sources */,
@@ -585,9 +595,11 @@
 				5B5ED63E241A28E800F0747A /* AppDelegate.swift in Sources */,
 				5BA025F0241D09F80087433F /* SRequest.swift in Sources */,
 				5BA025EE241D09AE0087433F /* GeoStoresSResponse.swift in Sources */,
+				5B460292241F0DAF0031A895 /* MaskAnnottationView.swift in Sources */,
 				5B4F7B96241A6D010017BCAE /* MapViewProtocol.swift in Sources */,
 				5BA025F2241D0A840087433F /* GeoStoresSRequest.swift in Sources */,
 				5B5ED640241A28E800F0747A /* SceneDelegate.swift in Sources */,
+				5B460290241F0C480031A895 /* MaskAnnotaion.swift in Sources */,
 				5B5ED642241A28E800F0747A /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

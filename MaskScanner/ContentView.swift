@@ -14,9 +14,9 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             //다음맵뷰
-            //SMTMapView(viewModel: viewModel, annotations: $viewModel.annotations)
+            //SMTMapView(annotations: $viewModel.annotations, viewModel: viewModel)
             //MKMapView
-            SMKMapView(viewModel: viewModel, annotations: $viewModel.annotations)
+            SMKMapView(annotations: $viewModel.annotations, viewModel: viewModel)
                 .alert(isPresented: $viewModel.showMapAlert) {
                     Alert(title: Text("Location access denied"),
                           message: Text("Your location is needed"),

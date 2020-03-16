@@ -13,7 +13,7 @@ struct SMTMapView: UIViewRepresentable, MapViewProtocol {
     var locationManager: CLLocationManager? = nil
     
     var viewModel: MaskStoresViewModel?
-    @Binding var annotations: [MKPointAnnotation]?
+    @Binding var annotations: [MaskAnnotaion]?
     
     var mapView: UIView {
         return mtMapView
@@ -46,20 +46,5 @@ struct SMTMapView: UIViewRepresentable, MapViewProtocol {
 struct SMTMapView_Preview: PreviewProvider {
     static var previews: some View {
         SMTMapView(viewModel: MaskStoresViewModel(), annotations: .constant([MKPointAnnotation.example]))
-    }
-}
-
-extension LocationCoordinator: MTMapViewDelegate {
-    
-    func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {
-        let currentLocationPointGeo = location.mapPointGeo()
-        print("MTMapView updateCurrentLocation (\(currentLocationPointGeo.latitude)), \(currentLocationPointGeo.longitude) accuracy (\(accuracy))")
-        
-        mapView.setMapCenter(MTMapPoint(geoCoord: currentLocationPointGeo), zoomLevel: 1, animated: true)
-        self.mapView.viewModel?.regionTuple = (currentLocationPointGeo.latitude, currentLocationPointGeo.longitude)
-    }
-    
-    func mapView(_ mapView: MTMapView!, updateDeviceHeading headingAngle: MTMapRotationAngle) {
-        print("MTMapView updateDeviceHeading (\(headingAngle))) degrees")
     }
 }

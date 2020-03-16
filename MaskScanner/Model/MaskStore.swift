@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 // MARK: - Mask Store
 struct MaskStore: Codable {
@@ -19,6 +20,79 @@ struct MaskStore: Codable {
         case stockAt = "stock_at"
         case remainStat = "remain_stat"
         case createdAt = "created_at"
+    }
+}
+
+enum MaskRemainType {
+    case plenty
+    case some
+    case few
+    case empty
+    
+    var text: String {
+        switch self {
+        case .plenty:
+            return "30개 이상 100개미만"
+        case .some:
+            return "2개 이상 30개 미만"
+        case .few:
+            return "1개 이하"
+        case .empty:
+            return "판매중지"
+        }
+    }
+    
+    var displayPriority: MKFeatureDisplayPriority {
+        switch self {
+        case .plenty:
+            return .required
+        case .some:
+            return .defaultHigh
+        case .few:
+            return .defaultLow
+        case .empty:
+            return .defaultLow
+        }
+    }
+    
+    var color: UIColor {
+        switch self {
+        case .plenty:
+            return UIColor.green
+        case .some:
+            return UIColor.yellow
+        case .few:
+            return UIColor.red
+        case .empty:
+            return UIColor.gray
+        }
+    }
+}
+
+extension MaskStore {
+    var remainType: MaskRemainType {
+        if let remainStat = remainStat {
+            if remainStat == "plenty" {
+                return .plenty
+            } else if remainStat == "some" {
+                return .some
+            } else if remainStat == "few" {
+                return .few
+            }
+        }
+        return .empty
+    }
+    
+    var remainText: String {
+        return remainType.text
+    }
+    
+    var displayPriority: MKFeatureDisplayPriority {
+        return remainType.displayPriority
+    }
+    
+    var color: UIColor {
+        return remainType.color
     }
 }
 

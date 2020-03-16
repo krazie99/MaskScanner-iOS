@@ -10,10 +10,9 @@ import SwiftUI
 import MapKit
 
 struct SMKMapView: UIViewRepresentable, MapViewProtocol {
-    var viewModel: MaskStoresViewModel?
-    @Binding var annotations: [MKPointAnnotation]?
+    @Binding var annotations: [MaskAnnotaion]?
     
-    var locationManager: CLLocationManager? = CLLocationManager()
+    var viewModel: MaskStoresViewModel?
     var mapView: UIView {
         return mkMapView
     }
@@ -26,23 +25,29 @@ struct SMKMapView: UIViewRepresentable, MapViewProtocol {
     }()
 
     func makeUIView(context: Context) -> MKMapView {
-        locationManager?.delegate = context.coordinator
-        locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        registerAnnotationViewClasses()
+        mkMapView.delegate = context.coordinator
         return mkMapView
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
         print("Updating")
-        if let annotations = annotations,
-            annotations.count != uiView.annotations.count {
+        if annotations?.count ?? 0 != uiView.annotations.count {
             uiView.removeAnnotations(uiView.annotations)
-            uiView.addAnnotations(annotations)
+            if let annotations = annotations {
+                uiView.addAnnotations(annotations)
+            }
         }
+    }
+    
+    private func registerAnnotationViewClasses() {
+        mkMapView.register(MaskAnnottationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mkMapView.register(MaskClusterView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
     }
     
     ///Use class Coordinator method
     func makeCoordinator() -> LocationCoordinator {
-        return LocationCoordinator(mapView: self)
+        return LocationCoordinator(mapView: self, locationManager: CLLocationManager())
     }
     
     func setRegion(_ region: MKCoordinateRegion, animated: Bool) {
@@ -53,14 +58,14 @@ struct SMKMapView: UIViewRepresentable, MapViewProtocol {
 
 struct MapView_Preview: PreviewProvider {
     static var previews: some View {
-        SMKMapView(viewModel: MaskStoresViewModel(), annotations: .constant([MKPointAnnotation.example]))
+        SMKMapView(annotations: .constant([MKPointAnnotation.example]), viewModel: MaskStoresViewModel())
     }
 }
 
 extension MKPointAnnotation {
     static var exmpleregionTuple = (37.38932677417901, 127.1140780875495)
-    static var example: MKPointAnnotation {
-        let annotation = MKPointAnnotation()
+    static var example: MaskAnnotaion {
+        let annotation = MaskAnnotaion()
         annotation.title = "우리집"
         annotation.subtitle = "백현마을 4단지"
         annotation.coordinate = CLLocationCoordinate2D(latitude: 37.38932677417901, longitude: 127.1140780875495)

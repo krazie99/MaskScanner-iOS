@@ -10,22 +10,23 @@ import SwiftUI
 import MapKit
 
 class MaskStoresViewModel: ObservableObject {
-    @Published var stores: [MaskStore]? {
+    
+    @Published var annotations: [MaskAnnotaion]?
+    @Published var showMapAlert = false
+    
+    var stores: [MaskStore]? {
         didSet {
             refreshAnnotations()
         }
     }
     
-    @Published var regionTuple: (lati: Double, lng: Double)? {
+    var regionTuple: (lati: Double, lng: Double)? {
         didSet {
             requestMaskStoresByGeo()
         }
     }
     
-    @Published var annotations: [MKPointAnnotation]?
-    @Published var showMapAlert = false
-    
-    func requestMaskStoresByGeo() {
+    private func requestMaskStoresByGeo() {
         let request = GeoStoresSRequest()
         if let regionTuple = regionTuple {
             request.lat = regionTuple.lati
@@ -42,17 +43,11 @@ class MaskStoresViewModel: ObservableObject {
             self.annotations = nil
             return
         }
+
+        let maskAnnotations = MaskAnnotaion.make(from: stores)
         
-        var annotationsTemp = [MKPointAnnotation]()
-        for store in stores {
-            let annotation = MKPointAnnotation()
-            annotation.title = store.name
-            annotation.coordinate = CLLocationCoordinate2D(latitude: store.lat, longitude: store.lng)
-            annotationsTemp.append(annotation)
-        }
-        
-        if !annotationsTemp.isEmpty {
-            self.annotations = annotationsTemp
+        if !maskAnnotations.isEmpty {
+            self.annotations = maskAnnotations
         } else {
             self.annotations = nil
         }
