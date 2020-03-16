@@ -1,5 +1,5 @@
 //
-//  MaskAnnotaion.swift
+//  MaskAnnotation.swift
 //  MaskScanner
 //
 //  Created by Sean Choi on 2020/03/16.
@@ -8,7 +8,7 @@
 
 import MapKit
 
-class MaskAnnotaion: MKPointAnnotation {
+class MaskAnnotation: MKPointAnnotation {
 
     var identifier: String = "maskAnnotionIdentifier"
     
@@ -16,9 +16,9 @@ class MaskAnnotaion: MKPointAnnotation {
     var displayPriority: MKFeatureDisplayPriority = .defaultLow
     var color: UIColor = UIColor.gray
     
-    static func make(from stores: [MaskStore]) -> [MaskAnnotaion] {
-        let annotations = stores.map { (store) -> MaskAnnotaion in
-            let annotation = MaskAnnotaion()
+    static func make(from stores: [MaskStore]) -> [MaskAnnotation] {
+        let annotations = stores.map { (store) -> MaskAnnotation in
+            let annotation = MaskAnnotation()
             annotation.title = store.name
             annotation.subtitle = store.remainText
             annotation.coordinate = CLLocationCoordinate2DMake(store.lat, store.lng)

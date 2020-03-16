@@ -13,7 +13,7 @@ class MaskAnnottationView: MKMarkerAnnotationView {
 
     override var annotation: MKAnnotation? {
         willSet {
-            guard let maskAnnotation = newValue as? MaskAnnotaion else { return }
+            guard let maskAnnotation = newValue as? MaskAnnotation else { return }
             clusteringIdentifier = "maskClusterIdentifier"
             
             canShowCallout = true

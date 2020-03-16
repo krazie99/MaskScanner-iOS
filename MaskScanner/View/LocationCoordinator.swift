@@ -9,8 +9,7 @@
 import Foundation
 import MapKit
 
-//MARK: - Core Location manager delegate
-class LocationCoordinator: NSObject, CLLocationManagerDelegate {
+class LocationCoordinator: NSObject {
     
     var mapView: MapViewProtocol
     var locationManager: CLLocationManager?
@@ -26,8 +25,11 @@ class LocationCoordinator: NSObject, CLLocationManagerDelegate {
         self.locationManager?.delegate = self
         self.locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
     }
+}
+   
+//MARK: - CLLocationManager Delegate
+extension LocationCoordinator: CLLocationManagerDelegate {
     
-    ///Switch between user location status
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .restricted:
@@ -63,23 +65,17 @@ class LocationCoordinator: NSObject, CLLocationManagerDelegate {
     }
 }
 
+//MARK: - MKMapViewDelegate Delegate
 extension LocationCoordinator: MKMapViewDelegate {
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        guard annotation is MKPointAnnotation else { return nil }
-//
-//        let identifier = "Annotation"
-//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-//
-//        if annotationView == nil {
-//            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//            annotationView!.canShowCallout = true
-//        } else {
-//            annotationView!.annotation = annotation
-//        }
-//        return annotationView
-//    }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        if let annotation = view.annotation as? MaskAnnotation {
+            print(annotation.identifier)
+        }
+    }
 }
 
+//MARK: - MTMapViewDelegate Delegate
 extension LocationCoordinator: MTMapViewDelegate {
     
     func mapView(_ mapView: MTMapView!, updateCurrentLocation location: MTMapPoint!, withAccuracy accuracy: MTMapLocationAccuracy) {

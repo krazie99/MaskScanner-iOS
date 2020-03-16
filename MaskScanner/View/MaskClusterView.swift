@@ -28,19 +28,19 @@ class MaskClusterView: MKAnnotationView {
                 let count = cluster.memberAnnotations.count
                 
                 let plentyCount = cluster.memberAnnotations.filter { member -> Bool in
-                    return (member as! MaskAnnotaion).remainType == .plenty
+                    return (member as! MaskAnnotation).remainType == .plenty
                 }.count
                 
                 let someCount = cluster.memberAnnotations.filter { member -> Bool in
-                    return (member as! MaskAnnotaion).remainType == .some
+                    return (member as! MaskAnnotation).remainType == .some
                 }.count
                 
                 let fewCount = cluster.memberAnnotations.filter { member -> Bool in
-                    return (member as! MaskAnnotaion).remainType == .few
+                    return (member as! MaskAnnotation).remainType == .few
                 }.count
                 
 //                let emptyCount = cluster.memberAnnotations.filter { member -> Bool in
-//                    return (member as! MaskAnnotaion).remainType == .empty
+//                    return (member as! MaskAnnotation).remainType == .empty
 //                }.count
                 
                 let plentyColor = MaskRemainType.plenty.color

@@ -13,7 +13,7 @@ protocol MapViewProtocol {
     var mapView: UIView { get }
     
     var viewModel: MaskStoresViewModel? { get set }
-    var annotations: [MaskAnnotaion]? { get set }
+    var annotations: [MaskAnnotation]? { get set }
     
     func setRegion(_ region: MKCoordinateRegion, animated: Bool)
 }

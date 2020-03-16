@@ -13,7 +13,7 @@ struct SMTMapView: UIViewRepresentable, MapViewProtocol {
     var locationManager: CLLocationManager? = nil
     
     var viewModel: MaskStoresViewModel?
-    @Binding var annotations: [MaskAnnotaion]?
+    @Binding var annotations: [MaskAnnotation]?
     
     var mapView: UIView {
         return mtMapView

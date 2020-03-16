@@ -11,7 +11,7 @@ import MapKit
 
 class MaskStoresViewModel: ObservableObject {
     
-    @Published var annotations: [MaskAnnotaion]?
+    @Published var annotations: [MaskAnnotation]?
     @Published var showMapAlert = false
     
     var stores: [MaskStore]? {
@@ -44,7 +44,7 @@ class MaskStoresViewModel: ObservableObject {
             return
         }
 
-        let maskAnnotations = MaskAnnotaion.make(from: stores)
+        let maskAnnotations = MaskAnnotation.make(from: stores)
         
         if !maskAnnotations.isEmpty {
             self.annotations = maskAnnotations
