@@ -21,5 +21,5 @@ final class GeoStoresSRequest: SRequest<GeoStoresSResponse> {
     //경도(wgs84 표준) / 최소:124.0, 최대:132.0
     var lng: Double = 127.1140780875495
     //반경(미터) / 최대 5000(5km)까지 조회 가능
-    var meter : Int = 1000
+    var meter : Int = 3000
 }
