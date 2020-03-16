@@ -11,11 +11,13 @@ import MapKit
 
 class LocationCoordinator: NSObject {
     
-    var mapView: MapViewProtocol
+    var mainMapView: MapViewProtocol
     var locationManager: CLLocationManager?
     
+    fileprivate var beforeRegion: MKCoordinateRegion?
+    
     init(mapView: MapViewProtocol, locationManager: CLLocationManager? = nil) {
-        self.mapView = mapView
+        self.mainMapView = mapView
         self.locationManager = locationManager
         super.init()
         initLocationManager()
@@ -35,7 +37,7 @@ extension LocationCoordinator: CLLocationManagerDelegate {
         case .restricted:
             break
         case .denied:
-            mapView.viewModel?.showMapAlert.toggle()
+            self.mainMapView.viewModel?.showMapAlert.toggle()
             return
         case .notDetermined:
             self.locationManager?.requestWhenInUseAuthorization()
@@ -60,7 +62,8 @@ extension LocationCoordinator: CLLocationManagerDelegate {
         
         // MKCoordinateSpan -- 지도 scale
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta:0.01, longitudeDelta:0.01))
-        mapView.setRegion(region, animated: true)
+        self.mainMapView.setRegion(region, needUpdate: true, animated: false)
+        self.mainMapView.viewModel?.canRefresh = false
         locationManager.stopUpdatingLocation()
     }
 }
@@ -73,6 +76,17 @@ extension LocationCoordinator: MKMapViewDelegate {
             print("Annotation: \(annotation.title ?? "") : \(annotation.subtitle ?? "")")
         }
     }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        if let center = beforeRegion?.center {
+            let distance = CLLocation.distance(from: center, to: mapView.region.center)
+            if distance > 1000 {
+                self.mainMapView.viewModel?.canRefresh = true
+                self.mainMapView.setRegion(mapView.region, needUpdate: false, animated: false)
+            }
+        }
+        beforeRegion = mapView.region
+    }
 }
 
 //MARK: - MTMapViewDelegate Delegate
@@ -83,7 +97,7 @@ extension LocationCoordinator: MTMapViewDelegate {
         print("MTMapView updateCurrentLocation (\(currentLocationPointGeo.latitude)), \(currentLocationPointGeo.longitude) accuracy (\(accuracy))")
         
         mapView.setMapCenter(MTMapPoint(geoCoord: currentLocationPointGeo), zoomLevel: 1, animated: true)
-        self.mapView.viewModel?.regionTuple = (currentLocationPointGeo.latitude, currentLocationPointGeo.longitude)
+        self.mainMapView.viewModel?.regionTuple = (currentLocationPointGeo.latitude, currentLocationPointGeo.longitude)
     }
     
     func mapView(_ mapView: MTMapView!, updateDeviceHeading headingAngle: MTMapRotationAngle) {

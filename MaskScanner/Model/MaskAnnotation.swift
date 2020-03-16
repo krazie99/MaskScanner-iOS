@@ -21,7 +21,7 @@ class MaskAnnotation: MKPointAnnotation {
             let annotation = MaskAnnotation()
             annotation.title = store.name
             annotation.subtitle = store.remainText
-            annotation.coordinate = CLLocationCoordinate2DMake(store.lat, store.lng)
+            annotation.coordinate = CLLocationCoordinate2DMake(store.latitude, store.longitude)
             
             annotation.remainType = store.remainType
             annotation.displayPriority = store.displayPriority

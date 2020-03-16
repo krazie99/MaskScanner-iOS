@@ -15,9 +15,13 @@ protocol MapViewProtocol {
     var viewModel: MaskStoresViewModel? { get set }
     var annotations: [MaskAnnotation]? { get set }
     
-    func setRegion(_ region: MKCoordinateRegion, animated: Bool)
+    func setRegion(_ region: MKCoordinateRegion, needUpdate:Bool, animated: Bool)
 }
 
 extension MapViewProtocol {
-    func setRegion(_ region: MKCoordinateRegion, animated: Bool) { }
+    func setRegion(_ region: MKCoordinateRegion, needUpdate:Bool, animated: Bool) { }
+    
+    var mkMapView: MKMapView? {
+        return mapView as? MKMapView
+    }
 }

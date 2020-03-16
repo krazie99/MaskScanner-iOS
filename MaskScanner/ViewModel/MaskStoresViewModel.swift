@@ -14,26 +14,33 @@ class MaskStoresViewModel: ObservableObject {
     @Published var annotations: [MaskAnnotation]?
     @Published var showMapAlert = false
     
+    @Published var isLoading = false
+    @Published var canRefresh = false
+    var isRefreshed = false
+    
     var stores: [MaskStore]? {
         didSet {
             refreshAnnotations()
         }
     }
     
-    var regionTuple: (lati: Double, lng: Double)? {
-        didSet {
-            requestMaskStoresByGeo()
-        }
-    }
+    var regionTuple: (lati: Double, lng: Double)?
     
-    private func requestMaskStoresByGeo() {
+    func requestMaskStoresByGeo() {
         let request = GeoStoresSRequest()
         if let regionTuple = regionTuple {
             request.lat = regionTuple.lati
             request.lng = regionTuple.lng
         }
+        
+        isLoading = true
         SNetwork.request(request) { [weak self] (response, error) in
-            guard let self = self, let response = response as? GeoStoresSResponse else { return }
+            guard let self = self else { return }
+            self.isRefreshed = true
+            self.isLoading = false
+            self.canRefresh = false
+            
+            guard let response = response as? GeoStoresSResponse else { return }
             self.stores = response.stores
         }
     }
@@ -45,7 +52,6 @@ class MaskStoresViewModel: ObservableObject {
         }
 
         let maskAnnotations = MaskAnnotation.make(from: stores)
-        
         if !maskAnnotations.isEmpty {
             self.annotations = maskAnnotations
         } else {

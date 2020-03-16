@@ -25,26 +25,37 @@ struct ContentView: View {
                                                     action: {
                                                         self.goToDeviceSettings()
                           }))
-            }
-            .edgesIgnoringSafeArea(.all)
-            //상태바
+            }.edgesIgnoringSafeArea(.all)
             VStack {
+                //상태바
                 Rectangle()
                     .frame(height: 30.0)
                     .foregroundColor(Color.bgColor)
                     .blur(radius: 20)
+                Spacer().frame(height: 15.0)
+                if viewModel.canRefresh {
+                    Button(action: {
+                        self.viewModel.requestMaskStoresByGeo()
+                    }) {
+                        HStack {
+                            Image(systemName: "arrow.clockwise")
+                                .font(.body)
+                            Text("재검색")
+                                .fontWeight(.semibold)
+                                .font(.body)
+                        }
+                        .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15))
+                        .foregroundColor(Color.buttonTextColor)
+                        .background(Color.bgColor)
+                        .cornerRadius(40)
+                    }
+                }
                 Spacer()
-            }
-            .edgesIgnoringSafeArea(.top)
+            }.edgesIgnoringSafeArea(.top)
+            ActivityIndicator(isAnimating: $viewModel.isLoading, style: .large)
         }.onAppear() {
             print("ContentView appeared!")
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
 
@@ -53,5 +64,11 @@ extension ContentView {
     func goToDeviceSettings() {
         guard let url = URL.init(string: UIApplication.openSettingsURLString) else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }

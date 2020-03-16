@@ -11,6 +11,10 @@
 		5B460290241F0C480031A895 /* MaskAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B46028F241F0C480031A895 /* MaskAnnotation.swift */; };
 		5B460292241F0DAF0031A895 /* MaskAnnottationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B460291241F0DAF0031A895 /* MaskAnnottationView.swift */; };
 		5B4602EE241F3BE60031A895 /* MaskClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4602ED241F3BE60031A895 /* MaskClusterView.swift */; };
+		5B4C4B41241F8F4C00202003 /* AnyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C4B40241F8F4C00202003 /* AnyValue.swift */; };
+		5B4C4B43241F929600202003 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C4B42241F929600202003 /* ActivityIndicator.swift */; };
+		5B4C4B45241F9BA200202003 /* CLLocation+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C4B44241F9BA200202003 /* CLLocation+Distance.swift */; };
+		5B4C4B47241FA34E00202003 /* SMKUserTrackingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C4B46241FA34E00202003 /* SMKUserTrackingButton.swift */; };
 		5B4F7B93241A6CB50017BCAE /* SMKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F7B92241A6CB50017BCAE /* SMKMapView.swift */; };
 		5B4F7B96241A6D010017BCAE /* MapViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F7B95241A6D010017BCAE /* MapViewProtocol.swift */; };
 		5B5ED63E241A28E800F0747A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ED63D241A28E800F0747A /* AppDelegate.swift */; };
@@ -72,6 +76,10 @@
 		5B46028F241F0C480031A895 /* MaskAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskAnnotation.swift; sourceTree = "<group>"; };
 		5B460291241F0DAF0031A895 /* MaskAnnottationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskAnnottationView.swift; sourceTree = "<group>"; };
 		5B4602ED241F3BE60031A895 /* MaskClusterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskClusterView.swift; sourceTree = "<group>"; };
+		5B4C4B40241F8F4C00202003 /* AnyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyValue.swift; sourceTree = "<group>"; };
+		5B4C4B42241F929600202003 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		5B4C4B44241F9BA200202003 /* CLLocation+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Distance.swift"; sourceTree = "<group>"; };
+		5B4C4B46241FA34E00202003 /* SMKUserTrackingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMKUserTrackingButton.swift; sourceTree = "<group>"; };
 		5B4F7B92241A6CB50017BCAE /* SMKMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMKMapView.swift; sourceTree = "<group>"; };
 		5B4F7B95241A6D010017BCAE /* MapViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewProtocol.swift; sourceTree = "<group>"; };
 		5B5ED63A241A28E800F0747A /* MaskScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaskScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,8 +261,10 @@
 				5B5ED6B1241A51FA00F0747A /* LocationCoordinator.swift */,
 				5B5ED68E241A36E500F0747A /* SMTMapView.swift */,
 				5B4F7B92241A6CB50017BCAE /* SMKMapView.swift */,
+				5B4C4B46241FA34E00202003 /* SMKUserTrackingButton.swift */,
 				5B460291241F0DAF0031A895 /* MaskAnnottationView.swift */,
 				5B4602ED241F3BE60031A895 /* MaskClusterView.swift */,
+				5B4C4B42241F929600202003 /* ActivityIndicator.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -272,6 +282,7 @@
 			children = (
 				5BA025EB241D08F80087433F /* MaskStore.swift */,
 				5B46028F241F0C480031A895 /* MaskAnnotation.swift */,
+				5B4C4B40241F8F4C00202003 /* AnyValue.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -280,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				5BA025D7241D00B30087433F /* Color+DarkMode.swift */,
+				5B4C4B44241F9BA200202003 /* CLLocation+Distance.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -586,13 +598,17 @@
 				5BA025E7241D05C20087433F /* AlertHelper.swift in Sources */,
 				5BA025D8241D00B30087433F /* Color+DarkMode.swift in Sources */,
 				5BA025DD241D040B0087433F /* SNetwork.swift in Sources */,
+				5B4C4B47241FA34E00202003 /* SMKUserTrackingButton.swift in Sources */,
+				5B4C4B43241F929600202003 /* ActivityIndicator.swift in Sources */,
 				5B5ED6B2241A51FA00F0747A /* LocationCoordinator.swift in Sources */,
 				5BA025F5241D0BEC0087433F /* MaskStoresViewModel.swift in Sources */,
 				5BA025EC241D08F80087433F /* MaskStore.swift in Sources */,
 				5BA025E3241D04950087433F /* SResponse.swift in Sources */,
 				5B4F7B93241A6CB50017BCAE /* SMKMapView.swift in Sources */,
 				5B5ED68F241A36E500F0747A /* SMTMapView.swift in Sources */,
+				5B4C4B41241F8F4C00202003 /* AnyValue.swift in Sources */,
 				5B5ED63E241A28E800F0747A /* AppDelegate.swift in Sources */,
+				5B4C4B45241F9BA200202003 /* CLLocation+Distance.swift in Sources */,
 				5BA025F0241D09F80087433F /* SRequest.swift in Sources */,
 				5BA025EE241D09AE0087433F /* GeoStoresSResponse.swift in Sources */,
 				5B460292241F0DAF0031A895 /* MaskAnnottationView.swift in Sources */,

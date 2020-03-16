@@ -27,17 +27,35 @@ struct SMKMapView: UIViewRepresentable, MapViewProtocol {
     func makeUIView(context: Context) -> MKMapView {
         registerAnnotationViewClasses()
         mkMapView.delegate = context.coordinator
+        
+        let button = MKUserTrackingButton(mapView: mkMapView)
+        button.layer.backgroundColor = UIColor(white: 1, alpha: 0.8).cgColor
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 5
+        button.translatesAutoresizingMaskIntoConstraints = false
+        mkMapView.addSubview(button)
+        
+        let scale = MKScaleView(mapView: mkMapView)
+        scale.legendAlignment = .trailing
+        scale.translatesAutoresizingMaskIntoConstraints = false
+        mkMapView.addSubview(scale)
+        
+        NSLayoutConstraint.activate([
+            button.bottomAnchor.constraint(equalTo: mkMapView.bottomAnchor, constant: -65),
+            button.trailingAnchor.constraint(equalTo: mkMapView.trailingAnchor, constant: -13),
+            scale.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -10),
+            scale.centerYAnchor.constraint(equalTo: button.centerYAnchor)])
+        
         return mkMapView
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
         print("Updating")
-        if annotations?.count ?? 0 != uiView.annotations.count {
-            uiView.removeAnnotations(uiView.annotations)
-            if let annotations = annotations {
-                uiView.addAnnotations(annotations)
-            }
-        }
+        guard let annotations = annotations, viewModel?.isRefreshed ?? false else { return }
+        viewModel?.isRefreshed.toggle()
+        uiView.removeAnnotations(uiView.annotations)
+        uiView.addAnnotations(annotations)
     }
     
     private func registerAnnotationViewClasses() {
@@ -50,9 +68,13 @@ struct SMKMapView: UIViewRepresentable, MapViewProtocol {
         return LocationCoordinator(mapView: self, locationManager: CLLocationManager())
     }
     
-    func setRegion(_ region: MKCoordinateRegion, animated: Bool) {
-        mkMapView.setRegion(region, animated: animated)
+    func setRegion(_ region: MKCoordinateRegion, needUpdate: Bool, animated: Bool) {
         viewModel?.regionTuple = (region.center.latitude, region.center.longitude)
+        if needUpdate {
+            mkMapView.setRegion(region, animated: animated)
+            viewModel?.requestMaskStoresByGeo()
+            viewModel?.canRefresh = false
+        }
     }
 }
 

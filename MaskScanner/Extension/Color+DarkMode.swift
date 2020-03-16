@@ -10,4 +10,5 @@ import SwiftUI
 
 extension Color {
     static let bgColor = Color("bgColor")
+    static let buttonTextColor = Color("buttonTextColor")
 }

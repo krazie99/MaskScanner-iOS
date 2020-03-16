@@ -9,20 +9,6 @@
 import Foundation
 import MapKit
 
-// MARK: - Mask Store
-struct MaskStore: Codable {
-    let code, name, addr, type: String
-    let lat, lng: Double
-    let stockAt, remainStat, createdAt: String?
-
-    enum CodingKeys: String, CodingKey {
-        case code, name, addr, type, lat, lng
-        case stockAt = "stock_at"
-        case remainStat = "remain_stat"
-        case createdAt = "created_at"
-    }
-}
-
 enum MaskRemainType {
     case plenty
     case some
@@ -69,7 +55,29 @@ enum MaskRemainType {
     }
 }
 
+// MARK: - Mask Store
+struct MaskStore: Codable {
+    let code, name, addr, type: String
+    let lat, lng: AnyDoubleValue?
+    let stockAt, remainStat, createdAt: String?
+
+    enum CodingKeys: String, CodingKey {
+        case code, name, addr, type, lat, lng
+        case stockAt = "stock_at"
+        case remainStat = "remain_stat"
+        case createdAt = "created_at"
+    }
+}
+
 extension MaskStore {
+    var latitude: Double {
+        return lat?.value ?? 0
+    }
+    
+    var longitude: Double {
+        return lng?.value ?? 0
+    }
+    
     var remainType: MaskRemainType {
         if let remainStat = remainStat {
             if remainStat == "plenty" {
