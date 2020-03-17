@@ -58,15 +58,17 @@ enum MaskRemainType {
 // MARK: - Mask Store
 struct MaskStore: Codable, Identifiable {
     var id: Int {
-        return name.hashValue
+        return code.value
     }
     
-    let code, name, addr, type: String
+    let code: AnyIntValue
+    let name, addr, type: String
     let lat, lng: AnyDoubleValue?
     let stockAt, remainStat, createdAt: String?
 
     enum CodingKeys: String, CodingKey {
-        case code, name, addr, type, lat, lng
+        case code
+        case name, addr, type, lat, lng
         case stockAt = "stock_at"
         case remainStat = "remain_stat"
         case createdAt = "created_at"

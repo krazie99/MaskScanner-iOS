@@ -87,7 +87,7 @@ struct MapView_Preview: PreviewProvider {
 extension MKPointAnnotation {
     static var exmpleregionTuple = (37.38932677417901, 127.1140780875495)
     static var example: MaskAnnotation {
-        let testStore = MaskStore(code: "1", name: "약국", addr: "주소", type: "타입", lat: nil, lng: nil, stockAt: "판매", remainStat: "판매", createdAt: "오늘")
+        let testStore = MaskStore(code: AnyIntValue.int(1), name: "약국", addr: "주소", type: "타입", lat: nil, lng: nil, stockAt: "판매", remainStat: "판매", createdAt: "오늘")
         
         let annotation = MaskAnnotation(store: testStore)
         annotation.title = "서울시청"
