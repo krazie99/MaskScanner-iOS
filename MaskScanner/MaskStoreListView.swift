@@ -25,7 +25,11 @@ struct MaskStoreListView: View {
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             HStack {
-                                Text(store.name)
+                                Image("mask_cell_icon")
+                                    .frame(width: 20, height: 20)
+                                    .foregroundColor(.buttonTextColor)
+                                    .scaledToFit()
+                                Text("\(store.name) (\(store.remainText))")
                                     .foregroundColor(.buttonTextColor)
                                 Spacer()
                                 Image(systemName: "chevron.right")
