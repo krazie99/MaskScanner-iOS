@@ -16,6 +16,7 @@
 		5B4C4B45241F9BA200202003 /* CLLocation+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C4B44241F9BA200202003 /* CLLocation+Distance.swift */; };
 		5B4C4B47241FA34E00202003 /* SMKUserTrackingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4C4B46241FA34E00202003 /* SMKUserTrackingButton.swift */; };
 		5B4E185224211925008212E4 /* MaskStoreListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4E185124211925008212E4 /* MaskStoreListView.swift */; };
+		5B4E185424213839008212E4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B4E185324213839008212E4 /* MapKit.framework */; };
 		5B4F7B93241A6CB50017BCAE /* SMKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F7B92241A6CB50017BCAE /* SMKMapView.swift */; };
 		5B4F7B96241A6D010017BCAE /* MapViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F7B95241A6D010017BCAE /* MapViewProtocol.swift */; };
 		5B5ED63E241A28E800F0747A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ED63D241A28E800F0747A /* AppDelegate.swift */; };
@@ -26,7 +27,6 @@
 		5B5ED64A241A28E900F0747A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5ED648241A28E900F0747A /* LaunchScreen.storyboard */; };
 		5B5ED655241A28EA00F0747A /* MaskScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ED654241A28EA00F0747A /* MaskScannerTests.swift */; };
 		5B5ED660241A28EA00F0747A /* MaskScannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ED65F241A28EA00F0747A /* MaskScannerUITests.swift */; };
-		5B5ED68F241A36E500F0747A /* SMTMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ED68E241A36E500F0747A /* SMTMapView.swift */; };
 		5B5ED69A241A3D0300F0747A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5ED699241A3D0300F0747A /* libsqlite3.tbd */; };
 		5B5ED69C241A3D0800F0747A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5ED69B241A3D0800F0747A /* QuartzCore.framework */; };
 		5B5ED69E241A3D0D00F0747A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5ED69D241A3D0D00F0747A /* OpenGLES.framework */; };
@@ -35,8 +35,6 @@
 		5B5ED6A4241A3D6200F0747A /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5ED6A3241A3D6200F0747A /* libxml2.tbd */; };
 		5B5ED6A6241A3D6D00F0747A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5ED6A5241A3D6D00F0747A /* libc++.tbd */; };
 		5B5ED6A8241A3EA800F0747A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5ED6A7241A3EA800F0747A /* CoreGraphics.framework */; };
-		5B5ED6AB241A3F5000F0747A /* DaumMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5ED686241A33F000F0747A /* DaumMap.framework */; };
-		5B5ED6AD241A3F7800F0747A /* DaumMap.embeddedframework in Resources */ = {isa = PBXBuildFile; fileRef = 5B5ED6AC241A3F7800F0747A /* DaumMap.embeddedframework */; };
 		5B5ED6B2241A51FA00F0747A /* LocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ED6B1241A51FA00F0747A /* LocationCoordinator.swift */; };
 		5BA025D8241D00B30087433F /* Color+DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA025D7241D00B30087433F /* Color+DarkMode.swift */; };
 		5BA025DA241D01240087433F /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA025D9241D01240087433F /* Color.xcassets */; };
@@ -82,6 +80,7 @@
 		5B4C4B44241F9BA200202003 /* CLLocation+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Distance.swift"; sourceTree = "<group>"; };
 		5B4C4B46241FA34E00202003 /* SMKUserTrackingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMKUserTrackingButton.swift; sourceTree = "<group>"; };
 		5B4E185124211925008212E4 /* MaskStoreListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskStoreListView.swift; sourceTree = "<group>"; };
+		5B4E185324213839008212E4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5B4F7B92241A6CB50017BCAE /* SMKMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMKMapView.swift; sourceTree = "<group>"; };
 		5B4F7B95241A6D010017BCAE /* MapViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewProtocol.swift; sourceTree = "<group>"; };
 		5B5ED63A241A28E800F0747A /* MaskScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaskScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,7 +99,6 @@
 		5B5ED661241A28EA00F0747A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B5ED686241A33F000F0747A /* DaumMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DaumMap.framework; path = MaskScanner/Library/DaumMap.embeddedframework/DaumMap.framework; sourceTree = "<group>"; };
 		5B5ED68A241A346600F0747A /* MaskScanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MaskScanner-Bridging-Header.h"; sourceTree = "<group>"; };
-		5B5ED68E241A36E500F0747A /* SMTMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTMapView.swift; sourceTree = "<group>"; };
 		5B5ED699241A3D0300F0747A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		5B5ED69B241A3D0800F0747A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5B5ED69D241A3D0D00F0747A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -109,7 +107,6 @@
 		5B5ED6A3241A3D6200F0747A /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		5B5ED6A5241A3D6D00F0747A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		5B5ED6A7241A3EA800F0747A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		5B5ED6AC241A3F7800F0747A /* DaumMap.embeddedframework */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DaumMap.embeddedframework; sourceTree = "<group>"; };
 		5B5ED6B1241A51FA00F0747A /* LocationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinator.swift; sourceTree = "<group>"; };
 		5BA025D7241D00B30087433F /* Color+DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+DarkMode.swift"; sourceTree = "<group>"; };
 		5BA025D9241D01240087433F /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
@@ -135,6 +132,7 @@
 			files = (
 				5B5ED69A241A3D0300F0747A /* libsqlite3.tbd in Frameworks */,
 				5B5ED6A6241A3D6D00F0747A /* libc++.tbd in Frameworks */,
+				5B4E185424213839008212E4 /* MapKit.framework in Frameworks */,
 				5B5ED6A4241A3D6200F0747A /* libxml2.tbd in Frameworks */,
 				5B5ED6A2241A3D1D00F0747A /* SystemConfiguration.framework in Frameworks */,
 				5B5ED6A0241A3D1900F0747A /* CoreLocation.framework in Frameworks */,
@@ -142,7 +140,6 @@
 				5B5ED69E241A3D0D00F0747A /* OpenGLES.framework in Frameworks */,
 				5B5ED69C241A3D0800F0747A /* QuartzCore.framework in Frameworks */,
 				9345A5277F83E69E50042C14 /* Pods_MaskScanner.framework in Frameworks */,
-				5B5ED6AB241A3F5000F0747A /* DaumMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +218,6 @@
 				5BA025F3241D0BDB0087433F /* ViewModel */,
 				5B5ED690241A370100F0747A /* View */,
 				5BA025D6241D009C0087433F /* Extension */,
-				5B5ED695241A3CCA00F0747A /* Library */,
 				5B5ED645241A28E900F0747A /* Preview Content */,
 				5B5ED643241A28E900F0747A /* Assets.xcassets */,
 				5BA025D9241D01240087433F /* Color.xcassets */,
@@ -262,7 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				5B5ED6B1241A51FA00F0747A /* LocationCoordinator.swift */,
-				5B5ED68E241A36E500F0747A /* SMTMapView.swift */,
 				5B4F7B92241A6CB50017BCAE /* SMKMapView.swift */,
 				5B4C4B46241FA34E00202003 /* SMKUserTrackingButton.swift */,
 				5B460291241F0DAF0031A895 /* MaskAnnottationView.swift */,
@@ -270,14 +265,6 @@
 				5B4C4B42241F929600202003 /* ActivityIndicator.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		5B5ED695241A3CCA00F0747A /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				5B5ED6AC241A3F7800F0747A /* DaumMap.embeddedframework */,
-			);
-			path = Library;
 			sourceTree = "<group>";
 		};
 		5B5ED6B0241A51DD00F0747A /* Model */ = {
@@ -339,6 +326,7 @@
 		F1EFDBE1866A1FB85560E3FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B4E185324213839008212E4 /* MapKit.framework */,
 				5B5ED6A7241A3EA800F0747A /* CoreGraphics.framework */,
 				5B5ED6A5241A3D6D00F0747A /* libc++.tbd */,
 				5B5ED6A3241A3D6200F0747A /* libxml2.tbd */,
@@ -465,7 +453,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B5ED6AD241A3F7800F0747A /* DaumMap.embeddedframework in Resources */,
 				5B5ED64A241A28E900F0747A /* LaunchScreen.storyboard in Resources */,
 				5BA025DA241D01240087433F /* Color.xcassets in Resources */,
 				5B5ED647241A28E900F0747A /* Preview Assets.xcassets in Resources */,
@@ -609,7 +596,6 @@
 				5BA025EC241D08F80087433F /* MaskStore.swift in Sources */,
 				5BA025E3241D04950087433F /* SResponse.swift in Sources */,
 				5B4F7B93241A6CB50017BCAE /* SMKMapView.swift in Sources */,
-				5B5ED68F241A36E500F0747A /* SMTMapView.swift in Sources */,
 				5B4C4B41241F8F4C00202003 /* AnyValue.swift in Sources */,
 				5B5ED63E241A28E800F0747A /* AppDelegate.swift in Sources */,
 				5B4C4B45241F9BA200202003 /* CLLocation+Distance.swift in Sources */,
@@ -676,7 +662,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -736,7 +722,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -807,7 +793,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "MaskScanner/MaskScanner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -836,7 +822,7 @@
 				PRODUCT_NAME = MaskScanner;
 				SWIFT_OBJC_BRIDGING_HEADER = "MaskScanner/MaskScanner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

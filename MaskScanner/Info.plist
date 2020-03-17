@@ -2,11 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>LSApplicationQuriesSchemes</key>
-	<array>
-		<string>nmap</string>
-		<string>daummaps</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -23,8 +18,21 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>1.0.0</string>
+	<key>KAKAO_APP_KEY</key>
+	<string>c3352a0a9b6dc096826dfb8f05706f80</string>
+	<key>LSApplicationQuriesSchemes</key>
+	<array>
+		<string>nmap</string>
+		<string>daummaps</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>주위 마스크 판매 현황 찾기에 이용 됩니다.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>주위 마스크 판매 현황 찾기에 이용 됩니다.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>주위 마스크 판매 현황 찾기에 이용 됩니다.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -51,8 +59,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -61,13 +67,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>주위 마스크 판매 현황 찾기에 이용 됩니다.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>주위 마스크 판매 현황 찾기에 이용 됩니다.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>주위 마스크 판매 현황 찾기에 이용 됩니다.</string>
-	<key>KAKAO_APP_KEY</key>
-	<string>c3352a0a9b6dc096826dfb8f05706f80</string>
 </dict>
 </plist>
