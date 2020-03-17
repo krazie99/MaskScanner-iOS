@@ -12,20 +12,18 @@ class MaskAnnotation: MKPointAnnotation {
 
     var identifier: String = "maskAnnotionIdentifier"
     
-    var remainType: MaskRemainType = .empty
-    var displayPriority: MKFeatureDisplayPriority = .defaultLow
-    var color: UIColor = UIColor.gray
+    let store: MaskStore
+    init(store: MaskStore) {
+        self.store = store
+        super.init()
+    }
     
     static func make(from stores: [MaskStore]) -> [MaskAnnotation] {
         let annotations = stores.map { (store) -> MaskAnnotation in
-            let annotation = MaskAnnotation()
+            let annotation = MaskAnnotation(store: store)
             annotation.title = store.name
             annotation.subtitle = store.remainText
             annotation.coordinate = CLLocationCoordinate2DMake(store.latitude, store.longitude)
-            
-            annotation.remainType = store.remainType
-            annotation.displayPriority = store.displayPriority
-            annotation.color = store.color
             return annotation
         }
         return annotations

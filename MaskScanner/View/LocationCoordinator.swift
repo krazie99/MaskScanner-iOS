@@ -71,9 +71,12 @@ extension LocationCoordinator: CLLocationManagerDelegate {
 //MARK: - MKMapViewDelegate Delegate
 extension LocationCoordinator: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        
         if let annotation = view.annotation as? MaskAnnotation {
             print("Annotation: \(annotation.title ?? "") : \(annotation.subtitle ?? "")")
+            self.mainMapView.viewModel?.selectedAnnotation = annotation
+        } else if let cluster = view.annotation as? MKClusterAnnotation {
+            print("Annotations count: \(cluster.memberAnnotations.count)")
+            self.mainMapView.viewModel?.selectedAnnotations = cluster.memberAnnotations as? [MaskAnnotation]
         }
     }
     

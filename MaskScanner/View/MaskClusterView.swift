@@ -28,15 +28,15 @@ class MaskClusterView: MKAnnotationView {
                 let count = cluster.memberAnnotations.count
                 
                 let plentyCount = cluster.memberAnnotations.filter { member -> Bool in
-                    return (member as! MaskAnnotation).remainType == .plenty
+                    return (member as! MaskAnnotation).store.remainType == .plenty
                 }.count
                 
                 let someCount = cluster.memberAnnotations.filter { member -> Bool in
-                    return (member as! MaskAnnotation).remainType == .some
+                    return (member as! MaskAnnotation).store.remainType == .some
                 }.count
                 
                 let fewCount = cluster.memberAnnotations.filter { member -> Bool in
-                    return (member as! MaskAnnotation).remainType == .few
+                    return (member as! MaskAnnotation).store.remainType == .few
                 }.count
                 
 //                let emptyCount = cluster.memberAnnotations.filter { member -> Bool in
@@ -98,6 +98,11 @@ class MaskClusterView: MKAnnotationView {
                     text.draw(in: rect, withAttributes: attributes)
                 }
             }
+        }
+        didSet {
+            let disclosureButton = UIButton(type: .detailDisclosure)
+            disclosureButton.tintColor = UIColor(named: "buttonTextColor")
+            rightCalloutAccessoryView = disclosureButton
         }
     }
 }

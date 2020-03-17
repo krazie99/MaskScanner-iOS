@@ -9,6 +9,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    enum MapType {
+        case kakao
+        case naver
+        case google
+    }
+    
     @ObservedObject var viewModel = MaskStoresViewModel()
     
     var body: some View {
@@ -53,9 +60,34 @@ struct ContentView: View {
                 Spacer()
             }.edgesIgnoringSafeArea(.top)
             ActivityIndicator(isAnimating: $viewModel.isLoading, style: .large)
-        }.onAppear() {
-            print("ContentView appeared!")
+            Button(action: { }) { Text("") }.sheet(isPresented: $viewModel.hasSelectedAnnotations) {
+                MaskStoreListView(stores: self.viewModel.selectedStores, selectedStore: self.$viewModel.selectedStore)
+                    .onDisappear() {
+                        self.viewModel.hasSelectedAnnotation = self.viewModel.selectedStore != nil
+                        if self.viewModel.selectedStore == nil {
+                            self.clearSelectedAnnotation()
+                        }
+                }
+            }
         }
+        .actionSheet(isPresented: $viewModel.hasSelectedAnnotation, content: { () -> ActionSheet in
+            let store = self.viewModel.selectedStore
+            let title = Text(store?.name ?? "")
+            let subTitle = Text(store?.remainText ?? "")
+            return ActionSheet(title: title, message: subTitle, buttons: [
+                .default(Text("카카오맵 길찾기"), action: {
+                    print("카카오맵")
+                    self.moveToFindTheWay(with: store, type: .kakao)
+                }),
+                .default(Text("네이버맵 길찾기"), action: {
+                    print("네이버맵")
+                    self.moveToFindTheWay(with: store,type: .naver)
+                }),
+                .destructive(Text("취소"), action: {
+                    self.clearSelectedAnnotation()
+                })
+            ])
+        })
     }
 }
 
@@ -64,6 +96,29 @@ extension ContentView {
     func goToDeviceSettings() {
         guard let url = URL.init(string: UIApplication.openSettingsURLString) else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
+    func moveToFindTheWay(with store: MaskStore?, type: MapType) {
+        guard let store = store, let regionTuple = self.viewModel.regionTuple else { return }
+        
+        var urlString: String?
+        if type == .kakao {
+            urlString = "daummaps://route?sp=\(regionTuple.lati),\(regionTuple.lng)&ep=\(store.latitude),\(store.longitude)&by=FOOT"
+        } else if type == .naver {
+            let tempUrl = "nmap://route/walk?slat=\(regionTuple.lati)&slng=\(regionTuple.lng)&sname=현위치&dlat=\(store.latitude)&dlng=\(store.longitude)&dname=\(store.name)&appname=dev.letsean.mask"
+            urlString = tempUrl.addingPercentEncoding(withAllowedCharacters:.urlQueryAllowed)
+        }
+        
+        if let urlString = urlString, let url = URL(string: urlString) {
+            UIApplication.shared.open(url, options: [:])
+        }
+        
+        clearSelectedAnnotation()
+    }
+    
+    func clearSelectedAnnotation() {
+        self.viewModel.selectedAnnotation = nil
+        self.viewModel.selectedAnnotations = nil
     }
 }
 

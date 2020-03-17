@@ -12,19 +12,50 @@ import MapKit
 class MaskStoresViewModel: ObservableObject {
     
     @Published var annotations: [MaskAnnotation]?
-    @Published var showMapAlert = false
     
-    @Published var isLoading = false
-    @Published var canRefresh = false
-    var isRefreshed = false
+    @Published var hasSelectedAnnotations: Bool = false
+    var selectedAnnotations: [MaskAnnotation]? {
+        didSet {
+            if let selectedAnnotations = selectedAnnotations, !selectedAnnotations.isEmpty {
+                hasSelectedAnnotations = true
+            } else {
+                hasSelectedAnnotations = false
+            }
+        }
+    }
     
+    var selectedStores: [MaskStore] {
+        guard let annotations = self.selectedAnnotations else { return [] }
+        var stores: [MaskStore] = []
+        for annotation in annotations {
+            stores.append(annotation.store)
+        }
+        return stores
+    }
+    
+    @Published var hasSelectedAnnotation: Bool = false
+    var selectedAnnotation: MaskAnnotation? {
+        didSet {
+            self.selectedStore = self.selectedAnnotation?.store
+            hasSelectedAnnotation = self.selectedStore != nil
+        }
+    }
+    
+    @Published var selectedStore: MaskStore?
+    
+    var regionTuple: (lati: Double, lng: Double)?
     var stores: [MaskStore]? {
         didSet {
             refreshAnnotations()
         }
     }
     
-    var regionTuple: (lati: Double, lng: Double)?
+    @Published var showMapAlert = false
+    
+    @Published var isLoading = false
+    @Published var canRefresh = false
+    var isRefreshed = false
+    
     
     func requestMaskStoresByGeo() {
         let request = GeoStoresSRequest()

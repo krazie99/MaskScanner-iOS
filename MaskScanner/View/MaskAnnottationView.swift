@@ -17,11 +17,14 @@ class MaskAnnottationView: MKMarkerAnnotationView {
             clusteringIdentifier = "maskClusterIdentifier"
             
             canShowCallout = true
-            rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            
+            let disclosureButton = UIButton(type: .detailDisclosure)
+            disclosureButton.tintColor = UIColor(named: "buttonTextColor")
+            rightCalloutAccessoryView = disclosureButton
             
             glyphImage = UIImage(named: "mask")
-            markerTintColor = maskAnnotation.color
-            displayPriority = maskAnnotation.displayPriority
+            markerTintColor = maskAnnotation.store.color
+            displayPriority = maskAnnotation.store.displayPriority
         }
     }
 
