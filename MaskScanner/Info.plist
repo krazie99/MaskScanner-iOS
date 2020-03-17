@@ -11,13 +11,13 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>마스크</string>
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>1.0.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>
@@ -57,11 +57,11 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Used to Location&apos;s Info always for Using Beacon.</string>
+	<string>주위 마스크 판매 현황 찾기에 이용 됩니다.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Used to Location&apos;s Info always for Using Beacon.</string>
+	<string>주위 마스크 판매 현황 찾기에 이용 됩니다.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Used to Location&apos;s Info for Using Beacon when In Use.</string>
+	<string>주위 마스크 판매 현황 찾기에 이용 됩니다.</string>
 	<key>KAKAO_APP_KEY</key>
 	<string>c3352a0a9b6dc096826dfb8f05706f80</string>
 </dict>
