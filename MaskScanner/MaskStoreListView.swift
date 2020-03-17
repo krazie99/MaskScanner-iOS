@@ -18,22 +18,29 @@ struct MaskStoreListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(stores) { store in
-                    Button(action: {
-                        self.selectedStore = store
-                        self.presentationMode.wrappedValue.dismiss()
-                    }) {
-                        HStack {
-                            Text(store.name)
-                            Spacer()
-                            Image(systemName: "chevron.right")
+                Section(header: Text("")) {
+                    ForEach(stores) { store in
+                        Button(action: {
+                            self.selectedStore = store
+                            self.presentationMode.wrappedValue.dismiss()
+                        }) {
+                            HStack {
+                                Text(store.name)
+                                    .foregroundColor(.buttonTextColor)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .foregroundColor(.buttonTextColor)
+                            }
                         }
                     }
+                    .frame(height: 45)
                 }
-                .frame(height: 45)
             }
+            .listStyle(GroupedListStyle())
+            .listRowBackground(Color.clear)
             .navigationBarTitle("판매처 선택")
         }
+        
     }
 }
 
