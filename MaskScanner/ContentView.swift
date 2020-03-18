@@ -60,16 +60,16 @@ struct ContentView: View {
                 Spacer()
             }.edgesIgnoringSafeArea(.top)
             ActivityIndicator(isAnimating: $viewModel.isLoading, style: .large)
-            Button(action: { }) { Text("") }.sheet(isPresented: $viewModel.hasSelectedAnnotations) {
-                MaskStoreListView(stores: self.viewModel.selectedStores, selectedStore: self.$viewModel.selectedStore)
-                    .onDisappear() {
-                        self.viewModel.hasSelectedAnnotation = self.viewModel.selectedStore != nil
-                        if self.viewModel.selectedStore == nil {
-                            self.clearSelectedAnnotation()
-                        }
-                }
-            }
         }
+        .sheet(isPresented: $viewModel.hasSelectedAnnotations, content: {
+            MaskStoreListView(stores: self.viewModel.selectedStores, selectedStore: self.$viewModel.selectedStore)
+                .onDisappear() {
+                    self.viewModel.hasSelectedAnnotation = self.viewModel.selectedStore != nil
+                    if self.viewModel.selectedStore == nil {
+                        self.clearSelectedAnnotation()
+                    }
+            }
+        })
         .actionSheet(isPresented: $viewModel.hasSelectedAnnotation, content: { () -> ActionSheet in
             let store = self.viewModel.selectedStore
             let title = Text(store?.name ?? "")
