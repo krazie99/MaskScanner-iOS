@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>KAKAO_APP_KEY</key>
 	<string>c3352a0a9b6dc096826dfb8f05706f80</string>
 	<key>LSApplicationQuriesSchemes</key>

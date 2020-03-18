@@ -14,16 +14,20 @@ enum MaskRemainType {
     case some
     case few
     case empty
-    
+    case breakTime
+
+    //재고 상태[100개 이상(녹색): 'plenty' / 30개 이상 100개미만(노랑색): 'some' / 2개 이상 30개 미만(빨강색): 'few' / 1개 이하(회색): 'empty' / 판매중지: 'break']
     var text: String {
         switch self {
         case .plenty:
-            return "30개 이상 100개미만"
+            return "100개 이상"
         case .some:
-            return "2개 이상 30개 미만"
+            return "30개 이상 100개미만"
         case .few:
-            return "1개 이하"
+            return "2개 이상 30개 미만"
         case .empty:
+            return " 1개 이하"
+        case .breakTime:
             return "판매중지"
         }
     }
@@ -38,6 +42,8 @@ enum MaskRemainType {
             return .defaultLow
         case .empty:
             return .defaultLow
+        case .breakTime:
+            return .defaultLow
         }
     }
     
@@ -50,6 +56,8 @@ enum MaskRemainType {
         case .few:
             return UIColor(named: "redMaskColor") ?? UIColor.red
         case .empty:
+            return UIColor.gray
+        case .breakTime:
             return UIColor.gray
         }
     }
@@ -92,9 +100,11 @@ extension MaskStore {
                 return .some
             } else if remainStat == "few" {
                 return .few
+            } else if remainStat == "empty" {
+                return .empty
             }
         }
-        return .empty
+        return .breakTime
     }
     
     var remainText: String {
